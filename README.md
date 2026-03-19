@@ -5,26 +5,26 @@ Item
 
 - Request
 
-{
-
-  "name": "iPhone 15",
-
-  "sku": "IP15-001",
+  {
   
-  "description": "Apple smartphone"
-
-}
+    "name": "iPhone 15",
+  
+    "sku": "IP15-001",
+    
+    "description": "Apple smartphone"
+  
+  }
 
 - Expected Response
 
-{
-
-  "itemId": "ITEM001",
+  {
   
-  "name": "iPhone 15",
+    "itemId": "ITEM001",
+    
+    "name": "iPhone 15",
+    
+    "sku": "IP15-001",
+    
+    "description": "Apple smartphone"
   
-  "sku": "IP15-001",
-  
-  "description": "Apple smartphone"
-
-}
+  }
