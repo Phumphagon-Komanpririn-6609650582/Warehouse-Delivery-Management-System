@@ -31,3 +31,27 @@ EndPoint POST /api/items
     "description": "Apple smartphone"
   
   }
+
+  **Update Item**
+
+  EndPoint PUT /api/items/{itemId}
+
+- Request
+  
+  {
+    
+    "name": "iPhone 15 Pro",
+    
+    "sku": "IP15-002",
+    
+    "description": "Updated version"
+  
+  }
+
+- Expected Response
+
+  {
+   
+    "message": "Item updated successfully"
+  
+  }
