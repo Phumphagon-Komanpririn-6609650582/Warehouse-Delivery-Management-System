@@ -56,6 +56,32 @@ EndPoint POST /api/items
   
   }
 
+  **Get Item**
+
+  EndPoint GET /api/items/{itemId}
+
+- Request
+
+  {
+  
+    itemId = ITEM001
+
+  }
+
+- Expected Response
+
+  {
+  
+    "itemId": "ITEM001",
+  
+    "name": "iPhone 15",
+  
+    "sku": "IP15-001",
+  
+    "description": "Apple smartphone"
+  
+  }
+
   #  🗄️Inventory
 
   **Add Stock**
@@ -74,7 +100,9 @@ EndPoint POST /api/items
 
   {
   
-  "availableQuantity": 150
+  "availableQuantity": 150,
+  
+  "reservedQuantity": 5
 
   }
 
@@ -82,7 +110,7 @@ EndPoint POST /api/items
 
   EndPoint POST /api/inventories/{itemId}/deduct
 
-  - Request
+- Request
 
   {
   
@@ -90,21 +118,57 @@ EndPoint POST /api/items
   
   }
 
+- Expected Response
+
+  {
+  
+  "availableQuantity": 90
+
+  "reservedQuantity": 5
+
+  }
+  
    **Lock Stock (reserve)**
 
   EndPoint POST /api/inventories/{itemId}/lock
 
-  - Request
+- Request
 
   {
   
   "quantity": 5,
   
-  "referenceId": "ORDER001"
+  }
+
+- Expected Response
+
+  {
+  
+  "availableQuantity": 85,
+
+  "reservedQuantity": 10
+
+  }
+  
+   **Release Stock**
+
+- Request
+
+  {
+  
+  "quantity": 5,
   
   }
 
-   **Release Stock**
+- Expected Response
+
+  {
+  
+  "availableQuantity": 90,
+
+  "reservedQuantity": 5
+
+  }
 
   EndPoint POST /api/inventories/{itemId}/release
 
@@ -112,7 +176,7 @@ EndPoint POST /api/items
 
   EndPoint POST /api/inventories/{itemId}/adjust
 
-  - Request
+- Request
 
   {
   
@@ -120,14 +184,38 @@ EndPoint POST /api/items
   
   }
 
+- Expected Response
+
+  {
+  
+  "availableQuantity": 200,
+  
+  "reservedQuantity": 0
+
+  }
+  
   **Check Low Stock**
 
   EndPoint GET /api/inventories/{itemId}/low-stock
 
-  - Request
+- Request
 
   {
   
-  "lowStock": true
+  itemId = ITEM001
+  
+  }
+
+- Expected Response
+
+  {
+  
+  "itemId": "ITEM001",
+  
+  "lowStock": true,
+  
+  "availableQuantity": 5,
+  
+  "threshold": 10
   
   }
