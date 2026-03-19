@@ -3,17 +3,28 @@
 # 📦Item
 Item
 
-Request
+-- Request
+
 {
+
   "name": "iPhone 15",
+
   "sku": "IP15-001",
+  
   "description": "Apple smartphone"
+
 }
 
-Expected Response
+-- Expected Response
+
 {
+
   "itemId": "ITEM001",
+  
   "name": "iPhone 15",
+  
   "sku": "IP15-001",
+  
   "description": "Apple smartphone"
+
 }
