@@ -2,7 +2,7 @@
 
 # 📦Item
 
-** Item
+* Item
 
 EndPoint POST /api/items
 
