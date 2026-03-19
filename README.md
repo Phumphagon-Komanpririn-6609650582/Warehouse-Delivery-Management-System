@@ -152,6 +152,8 @@ EndPoint POST /api/items
   
    **Release Stock**
 
+  EndPoint POST /api/inventories/{itemId}/release
+
 - Request
 
   {
@@ -169,8 +171,6 @@ EndPoint POST /api/items
   "reservedQuantity": 5
 
   }
-
-  EndPoint POST /api/inventories/{itemId}/release
 
   **Adjust Stock**
 
