@@ -223,76 +223,124 @@ EndPoint POST /api/items
 
 📑 Stock Transaction
 
+Get Transactions
 
- Get Transactions
-**Endpoint:** `GET /api/transactions`
+EndPoint GET /api/transactions
 
-**Query Parameters**
-json
+Query Parameters
+
 {
-  "itemId": "ITEM001",
-  "type": "ADD"
+
+"itemId": "ITEM001",
+
+"type": "ADD"
+
 }
+
 Expected Response
 
-  {
-    "transactionId": "TX001",
-    "itemId": "ITEM001",
-    "type": "ADD",
-    "quantity": 50,
-    "timestamp": "2026-03-19T10:00:00",
-    "referenceId": "ADMIN001"
-  },
-  {
-    "transactionId": "TX002",
-    "itemId": "ITEM001",
-    "type": "DEDUCT",
-    "quantity": 10,
-    "timestamp": "2026-03-19T11:00:00",
-    "referenceId": "ORDER001"
-  }
+[
 
-
-### 🧾 Order
-
-
-#### Create Order
-**Endpoint:** `POST /api/orders`
-
-**Request**
-json
 {
-  "itemId": "ITEM001",
-  "quantity": 5
+
+"transactionId": "TX001",
+
+"itemId": "ITEM001",
+
+"type": "ADD",
+
+"quantity": 50,
+
+"timestamp": "2026-03-19T10:00:00",
+
+"referenceId": "ADMIN001"
+
+},
+
+{
+
+"transactionId": "TX002",
+
+"itemId": "ITEM001",
+
+"type": "DEDUCT",
+
+"quantity": 10,
+
+"timestamp": "2026-03-19T11:00:00",
+
+"referenceId": "ORDER001"
+
 }
 
-**Expected Response**
-{
-  "orderId": "ORDER001",
-  "orderDate": "2026-03-20",
-  "status": "CREATED"
 }
 
-**Update Order Status**
-Endpoint: PUT /api/orders/{orderId}/status
+🧾 Order
+
+Create Order
+
+EndPoint POST /api/orders
+
 Request
+
 {
-  "status": "CONFIRMED"
+
+"itemId": "ITEM001",
+
+"quantity": 5
+
 }
-**Expected Response**
+
+Expected Response
+
 {
-  "message": "Order status updated successfully",
-  "orderId": "ORDER001",
-  "status": "CONFIRMED"
+
+"orderId": "ORDER001",
+
+"orderDate": "2026-03-20",
+
+"status": "CREATED"
+
+}
+
+Update Order Status
+
+EndPoint PUT /api/orders/{orderId}/status
+
+Request
+
+{
+
+"status": "CONFIRMED"
+
+}
+
+Expected Response
+
+{
+
+"message": "Order status updated successfully",
+
+"orderId": "ORDER001",
+
+"status": "CONFIRMED"
+
 }
 
 Get Order
-Endpoint: GET /api/orders/{orderId}
+
+EndPoint GET /api/orders/{orderId}
+
 Expected Response
+
 {
-  "orderId": "ORDER001",
-  "orderDate": "2026-03-20",
-  "status": "CONFIRMED"
+
+"orderId": "ORDER001",
+
+"orderDate": "2026-03-20",
+
+"status": "CONFIRMED"
+
 }
 
 
