@@ -228,7 +228,7 @@ EndPoint POST /api/items
 **Endpoint:** `GET /api/transactions`
 
 **Query Parameters**
-```json
+json
 {
   "itemId": "ITEM001",
   "type": "ADD"
