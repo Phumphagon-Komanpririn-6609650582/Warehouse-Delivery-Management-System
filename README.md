@@ -234,7 +234,7 @@ json
   "type": "ADD"
 }
 Expected Response
-[
+
   {
     "transactionId": "TX001",
     "itemId": "ITEM001",
@@ -251,7 +251,7 @@ Expected Response
     "timestamp": "2026-03-19T11:00:00",
     "referenceId": "ORDER001"
   }
-]
+
 
 ### 🧾 Order
 
@@ -260,7 +260,7 @@ Expected Response
 **Endpoint:** `POST /api/orders`
 
 **Request**
-```json
+json
 {
   "itemId": "ITEM001",
   "quantity": 5
