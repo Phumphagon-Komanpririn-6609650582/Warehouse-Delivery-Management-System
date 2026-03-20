@@ -265,24 +265,27 @@ json
   "itemId": "ITEM001",
   "quantity": 5
 }
-Expected Response
+
+**Expected Response**
 {
   "orderId": "ORDER001",
   "orderDate": "2026-03-20",
   "status": "CREATED"
 }
-Update Order Status
+
+**Update Order Status**
 Endpoint: PUT /api/orders/{orderId}/status
 Request
 {
   "status": "CONFIRMED"
 }
-Expected Response
+**Expected Response**
 {
   "message": "Order status updated successfully",
   "orderId": "ORDER001",
   "status": "CONFIRMED"
 }
+
 Get Order
 Endpoint: GET /api/orders/{orderId}
 Expected Response
