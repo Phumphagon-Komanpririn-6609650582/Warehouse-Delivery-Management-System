@@ -533,3 +533,51 @@ public interface ItemService {
     void updateItem(String itemId, String name, String sku, String description);
     Item getItemById(String itemId);
 }
+# 2. Inventory Service Interface
+public interface InventoryService {
+    void addStock(String itemId, int qty);
+    void deductStock(String itemId, int qty);
+    void lockStock(String itemId, int qty, String referenceId);
+    void releaseStock(String itemId, int qty, String referenceId);
+    void adjustStock(String itemId, int newQty);
+    boolean checkLowStock(String itemId);
+}
+# 3. Stock Transaction Service Interface
+import java.util.List;
+
+public interface StockTransactionService {
+    void createTransaction(String itemId, String staffId, 
+                           StockActionType type, int quantity, String referenceId);
+
+    List<StockTransaction> getTransactions(String itemId, StockActionType type);
+}
+# 4. Order Service Interface
+public interface OrderService {
+    Order createOrder(String itemId, int quantity);
+    void updateOrderStatus(String orderId, OrderStatus status);
+    Order getOrderById(String orderId);
+}
+# 5. Delivery Service Interface
+public interface DeliveryService {
+    Delivery createDelivery(String orderId, String staffId);
+    void updateDeliveryStatus(String deliveryId, DeliveryStatus status);
+    Delivery getDeliveryById(String deliveryId);
+}
+# 6. Staff Service Interface
+public interface StaffService {
+    boolean login(String staffId, String password);
+    Role getRole(String staffId);
+}
+# 7. Supporting Enums
+public enum StockActionType {
+    ADD, DEDUCT, ADJUST, LOCK, RELEASE
+}
+public enum OrderStatus {
+    CREATED, CONFIRMED, CANCELLED
+}
+public enum DeliveryStatus {
+    PENDING, SHIPPED, DELIVERED
+}
+public enum Role {
+    WarehouseStaff, DeliveryStaff, Admin
+}
