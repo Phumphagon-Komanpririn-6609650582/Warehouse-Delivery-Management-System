@@ -564,31 +564,44 @@ public interface StockTransactionService {
 }
 # 4. Order Service Interface
 public interface OrderService {
+
     Order createOrder(String itemId, int quantity);
+    
     void updateOrderStatus(String orderId, OrderStatus status);
+    
     Order getOrderById(String orderId);
 }
 # 5. Delivery Service Interface
 public interface DeliveryService {
+
     Delivery createDelivery(String orderId, String staffId);
+    
     void updateDeliveryStatus(String deliveryId, DeliveryStatus status);
+    
     Delivery getDeliveryById(String deliveryId);
 }
 # 6. Staff Service Interface
 public interface StaffService {
+
     boolean login(String staffId, String password);
+    
     Role getRole(String staffId);
 }
 # 7. Supporting Enums
 public enum StockActionType {
+
     ADD, DEDUCT, ADJUST, LOCK, RELEASE
 }
+
 public enum OrderStatus {
+
     CREATED, CONFIRMED, CANCELLED
 }
 public enum DeliveryStatus {
+
     PENDING, SHIPPED, DELIVERED
 }
 public enum Role {
+
     WarehouseStaff, DeliveryStaff, Admin
 }
