@@ -221,10 +221,10 @@ EndPoint POST /api/items
   }
   
 
-  ### 📑 Stock Transaction
+📑 Stock Transaction
 
 
-#### Get Transactions
+ Get Transactions
 **Endpoint:** `GET /api/transactions`
 
 **Query Parameters**
