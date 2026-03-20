@@ -219,8 +219,10 @@ EndPoint POST /api/items
   "threshold": 10
   
   }
+  
 
   ### 📑 Stock Transaction
+
 
 #### Get Transactions
 **Endpoint:** `GET /api/transactions`
@@ -250,7 +252,9 @@ Expected Response
     "referenceId": "ORDER001"
   }
 ]
+
 ### 🧾 Order
+
 
 #### Create Order
 **Endpoint:** `POST /api/orders`
@@ -287,3 +291,109 @@ Expected Response
   "orderDate": "2026-03-20",
   "status": "CONFIRMED"
 }
+
+🚚 Delivery Controller
+
+Create Delivery
+
+Endpoint: POST /api/deliveries
+
+Request
+
+{
+  "orderId": "ORDER001",
+  "staffId": "STAFF002"
+}
+
+Expected Response
+
+{
+  "deliveryId": "DEL001",
+  "orderId": "ORDER001",
+  "staffId": "STAFF002",
+  "status": "PENDING",
+  "shippedDate": null,
+  "deliveredDate": null
+}
+Update Delivery Status
+
+Endpoint: PUT /api/deliveries/{deliveryId}/status
+
+Request
+
+{
+  "status": "SHIPPED"
+}
+
+Expected Response
+
+{
+  "message": "Delivery status updated successfully",
+  "deliveryId": "DEL001",
+  "status": "SHIPPED",
+  "shippedDate": "2026-03-20T10:00:00",
+  "deliveredDate": null
+}
+Get Delivery
+
+Endpoint: GET /api/deliveries/{deliveryId}
+
+Expected Response
+
+{
+  "deliveryId": "DEL001",
+  "orderId": "ORDER001",
+  "staffId": "STAFF002",
+  "status": "SHIPPED",
+  "shippedDate": "2026-03-20T10:00:00",
+  "deliveredDate": null
+}
+
+👨‍💼 Staff Controller
+Login
+
+Endpoint: POST /api/staff/login
+
+Request
+
+{
+  "staffId": "STAFF001",
+  "password": "1234"
+}
+
+Expected Response
+
+{
+  "success": true,
+  "staffId": "STAFF001",
+  "role": "Admin"
+}
+Get Staff Profile
+
+Endpoint: GET /api/staff/{staffId}
+
+Expected Response
+
+{
+  "staffId": "STAFF001",
+  "name": "John Doe",
+  "role": "WarehouseStaff"
+}
+Get Staff Deliveries
+
+Endpoint: GET /api/staff/{staffId}/deliveries
+
+Expected Response
+
+[
+  {
+    "deliveryId": "DEL001",
+    "orderId": "ORDER001",
+    "status": "SHIPPED"
+  },
+  {
+    "deliveryId": "DEL002",
+    "orderId": "ORDER002",
+    "status": "DELIVERED"
+  }
+]
